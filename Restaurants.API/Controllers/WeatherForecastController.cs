@@ -15,13 +15,13 @@ public class WeatherForecastController : ControllerBase
     {
         _logger = logger;
         p_WeatherForecastService = weatherForecastService;
+    }
 
-
-        [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            return p_WeatherForecastService.Get();
-        }
+    [HttpGet]
+    private IEnumerable<WeatherForecast> Get()
+    {
+        _logger.LogInformation("Getting weather forecast");
+        return p_WeatherForecastService.Get();
     }
 
 }
