@@ -6,19 +6,18 @@ namespace Restaurants.API.Controllers;
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
-
     private readonly ILogger<WeatherForecastController> _logger;
 
-    private readonly WeatherForecastService p_WeatherForecastService;
+    private readonly IWeatherForecastService p_WeatherForecastService = new WeatherForecastService();
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger, WeatherForecastService weatherForecastService)
+
+    public WeatherForecastController(ILogger<WeatherForecastController> logger)
     {
         _logger = logger;
-        p_WeatherForecastService = weatherForecastService;
     }
 
     [HttpGet]
-    private IEnumerable<WeatherForecast> Get()
+    public IEnumerable<WeatherForecast> Get()
     {
         _logger.LogInformation("Getting weather forecast");
         return p_WeatherForecastService.Get();

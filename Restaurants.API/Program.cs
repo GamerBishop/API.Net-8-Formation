@@ -6,7 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-var app = builder.Build();
 
 //////////////////////////////////////
 // Singleton, Scoped ou Transient ? //
@@ -34,8 +33,9 @@ Ce cycle de vie est idéal pour les services qui doivent conserver un état glob
 qui sont coûteux à créer.*/
 //builder.Services.AddSingleton<IWeatherForecastService, WeatherForecastService>();
 
-// Configure the HTTP request pipeline.
+var app = builder.Build();
 
+// Configure the HTTP request pipeline.
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
