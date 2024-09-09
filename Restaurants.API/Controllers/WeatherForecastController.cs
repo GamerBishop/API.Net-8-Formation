@@ -17,10 +17,29 @@ public class WeatherForecastController : ControllerBase
     }
 
     [HttpGet]
+    [Route("ExampleGet")]
     public IEnumerable<WeatherForecast> Get()
     {
         _logger.LogInformation("Getting weather forecast");
         return p_WeatherForecastService.Get();
     }
+
+    [HttpGet]
+    [Route("{take}/ExampleGet")]
+    public IEnumerable<WeatherForecast> Get([FromQuery] int max, [FromRoute] int take)
+    {
+        _logger.LogInformation("Getting weather forecast");
+        return p_WeatherForecastService.Get();
+    }
+
+    [HttpGet("CurrentDay")]
+    public WeatherForecast GetCurrent()
+    {
+        _logger.LogInformation("Getting weather forecast");
+        return p_WeatherForecastService.Get().First();
+    }
+
+    [HttpPost]
+    public string Hello([FromBody] string name) => $"Hello {name}";
 
 }

@@ -1,10 +1,12 @@
+
+
 @Host = https://localhost
 @Port = 7226
 
 
 @RestaurantsAPI_HostAddress = {{Host}}:{{Port}}
 
-GET {{RestaurantsAPI_HostAddress}}/weatherforecast/
+GET {{RestaurantsAPI_HostAddress}}/weatherforecast/ExampleGet
 Accept: application/json
 Guid: {{$guid}}
 LocalDate : {{$datetime iso8601}}
@@ -19,6 +21,17 @@ Content-Type: application/json
 }
 ###
 
-GET {{RestaurantsAPI_HostAddress}}/weatherforecast
+GET {{RestaurantsAPI_HostAddress}}/weatherforecast/CurrentDay
+
+###
+
+GET {{RestaurantsAPI_HostAddress}}/weatherforecast/1587/ExampleGet?max=35
+
+###
+
+POST {{RestaurantsAPI_HostAddress}}/weatherforecast
+Content-Type: application/json
+
+"Godot"
 
 ###
