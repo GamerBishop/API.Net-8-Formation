@@ -20,6 +20,6 @@ namespace Restaurants.Domain.Entities
         public string? ContactNumber  { get; set; }
 
         public Adress? Adress { get; set; }
-        public List<Dish> Dishes { get; set; } = new List<Dish>();
+        public List<Dish> Dishes { get; set; } = [];
     }
 }

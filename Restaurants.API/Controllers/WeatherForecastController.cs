@@ -4,41 +4,26 @@ namespace Restaurants.API.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+public class WeatherForecastController(ILogger<WeatherForecastController> p_logger, IWeatherForecastService p_weatherForecastService) : ControllerBase
 {
-    private readonly ILogger<WeatherForecastController> _logger;
-
-    private readonly IWeatherForecastService p_WeatherForecastService = new WeatherForecastService();
-
-
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
-    {
-        _logger = logger;
-    }
-
     [HttpGet]
     [Route("ExampleGet")]
     public IEnumerable<WeatherForecast> Get()
     {
-        _logger.LogInformation("Getting weather forecast");
-        return p_WeatherForecastService.Get( 5, -20, 55 );
+        p_logger.LogInformation("Getting weather forecast");
+        return p_weatherForecastService.Get( 5, -20, 55 );
     }
 
     [HttpGet]
     [Route("{take}/ExampleGet")]
     public IActionResult Get([FromQuery] int max, [FromRoute] int take)
     {
-        _logger.LogInformation("Getting weather forecast");
+        p_logger.LogInformation("Getting weather forecast");
 
-        //if (take > 35000)
-        //{
-        //    Response.StatusCode = 400;
-        //}
-
-        var result = p_WeatherForecastService.Get(5, -20, 55);
+        var result = p_weatherForecastService.Get(take, -20, max);
 
         //return StatusCode(400, result); => ObjectResult as return value
-        return BadRequest(result);
+        return Ok(result);
     }
 
     [HttpPost]
@@ -50,14 +35,15 @@ public class WeatherForecastController : ControllerBase
 
         if (minTemperature > maxTemperature || numberOfResults < 0)
         {
-            _logger.LogError("Invalid parameters");
-            _logger.LogError("Max : " + maxTemperature.ToString() + ". Min : " + minTemperature.ToString() + ". Number of Results to be generated " + numberOfResults.ToString());
+            p_logger.LogError("Invalid parameters");
+            
+            p_logger.LogError("Max : {MaxTemperature}. Min : {MinTemperature}. Number of Results to be generated {NumberOfResults}", maxTemperature, minTemperature, numberOfResults);
             return BadRequest("Invalid parameters");
         }
 
-        _logger.LogInformation("Generating weather forecast");
+        p_logger.LogInformation("Generating weather forecast");
 
-        var result = p_WeatherForecastService.Get(numberOfResults, minTemperature, maxTemperature);
+        var result = p_weatherForecastService.Get(numberOfResults, minTemperature, maxTemperature);
 
         return Ok(result);
     }
@@ -65,8 +51,8 @@ public class WeatherForecastController : ControllerBase
     [HttpGet("CurrentDay")]
     public WeatherForecast GetCurrent()
     {
-        _logger.LogInformation("Gettin55 -20 55g weather forecast");
-        return p_WeatherForecastService.Get(1, -20, 55).First();
+        p_logger.LogInformation("Gettin55 -20 55g weather forecast");
+        return p_weatherForecastService.Get(1, -20, 55).First();
     }
 
     [HttpPost]
