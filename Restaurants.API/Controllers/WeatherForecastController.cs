@@ -41,6 +41,27 @@ public class WeatherForecastController : ControllerBase
         return BadRequest(result);
     }
 
+    [HttpPost]
+    [Route("generate")]
+    public IActionResult Create([FromQuery] int numberOfResults, [FromBody] Temps temperaturesLimites)
+    {
+        int minTemperature = temperaturesLimites.MinTemperature;
+        int maxTemperature = temperaturesLimites.MaxTemperature;
+
+        if (minTemperature > maxTemperature || numberOfResults < 0)
+        {
+            _logger.LogError("Invalid parameters");
+            _logger.LogError("Max : " + maxTemperature.ToString() + ". Min : " + minTemperature.ToString() + ". Number of Results to be generated " + numberOfResults.ToString());
+            return BadRequest("Invalid parameters");
+        }
+
+        _logger.LogInformation("Generating weather forecast");
+
+        var result = p_WeatherForecastService.Get(numberOfResults, minTemperature, maxTemperature);
+
+        return Ok(result);
+    }
+
     [HttpGet("CurrentDay")]
     public WeatherForecast GetCurrent()
     {

@@ -33,3 +33,13 @@ Content-Type: application/json
 "Godot"
 
 ###
+
+POST {{RestaurantsAPI_HostAddress}}/weatherforecast/generate?numberOfResults=100
+Content-Type: application/json
+  {
+    "MinTemperature" : "-50",
+    "MaxTemperature" : "60"
+  }
+
+
+###
