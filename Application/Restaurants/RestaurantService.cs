@@ -44,5 +44,17 @@ namespace Restaurants.Application.Restaurants
             return restaurantDto;
         }
 
+        public async Task<Guid> CreateRestaurant(CreateRestaurantDto createRestaurantDto)
+        {
+            logger.LogInformation("Creating restaurant with name {RestaurantName}", createRestaurantDto.Name);
+
+            var restaurant = mapper.Map<Restaurant>(createRestaurantDto);
+
+            Guid createdGuid = await restaurantRepository.CreateAsync(restaurant);
+
+            logger.LogInformation("Created restaurant with name {RestaurantName} and Id : {Guid} ", createRestaurantDto.Name, createdGuid);
+            return createdGuid;
+        }
+
     }
 }

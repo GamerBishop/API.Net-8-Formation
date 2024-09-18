@@ -12,3 +12,33 @@ GET {{RestaurantsAPI_HostAddress}}/api/restaurants/8A221E03-F2A4-44E9-5C17-08DCD
 
 ###
 GET {{RestaurantsAPI_HostAddress}}/api/restaurants/8A221E03-F2A4-44E9-5C17-08DCD803C921
+
+###
+
+GET {{RestaurantsAPI_HostAddress}}/api/Restaurants/c38388c5-5637-4857-4664-08dcd82c5bc1
+
+###
+
+GET {{RestaurantsAPI_HostAddress}}/api/Restaurants/d6485b6b-cbf7-455b-3acd-08dcd82b4693
+
+###
+
+POST {{RestaurantsAPI_HostAddress}}/api/restaurants/create
+Content-Type: application/json
+{
+  "Name": "La Croisette",
+  "Description": "La Croisette est un restaurant à Chatelaillon-Plage, situé sur le bord de mer, à côté du casino.",
+  "Category": "French",
+  "HasDelivery": false,
+  "ContactEmail": "lacroisette@info.fr",
+  "ContactNumber": "05 46 56 78 90",
+  "City": "Chatelaillon-Plage",
+  "Street" : "Boulevard de la Mer",
+  "ZipCode": "17340"
+}
+###
+
+POST {{RestaurantsAPI_HostAddress}}/api/restaurants/create
+Content-Type: application/json
+{
+}
