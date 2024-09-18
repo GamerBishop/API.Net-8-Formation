@@ -27,8 +27,13 @@ public class RestaurantsController(IRestaurantService restaurantService) : Contr
     }
 
     [HttpPost("create")]
-    public async Task<IActionResult> Create([FromBody]CreateRestaurantDto createRestaurantDto)
+    public async Task<IActionResult> Create(CreateRestaurantDto createRestaurantDto)
     {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
         Guid id = await restaurantService.CreateRestaurant(createRestaurantDto);
         return CreatedAtAction(nameof(GetById), new { id }, null);
     }
