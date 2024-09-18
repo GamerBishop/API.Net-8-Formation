@@ -13,7 +13,7 @@ namespace Restaurants.Domain.Entities
         public string Description { get; set; } = default!;
         public decimal Price { get; set; }
         public bool IsVegetarian { get; set; }
-                public int? kiloCalories { get; set; }
+                public int? KiloCalories { get; set; }
         public Guid RestaurantId { get; set; }
     }   
 }

@@ -12,8 +12,8 @@ using Restaurants.Infrastructure.Persistence;
 namespace Restaurants.Infrastructure.Migrations
 {
     [DbContext(typeof(RestaurantsDbContext))]
-    [Migration("20240918170621_kiloCalories")]
-    partial class kiloCalories
+    [Migration("20240918170621_KiloCalories")]
+    partial class KiloCalories
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,7 +50,7 @@ namespace Restaurants.Infrastructure.Migrations
                     b.Property<Guid>("RestaurantId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("kiloCalories")
+                    b.Property<int?>("KiloCalories")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

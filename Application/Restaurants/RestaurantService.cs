@@ -18,5 +18,22 @@ namespace Restaurants.Application.Restaurants
             logger.LogInformation("Retrieved {RestaurantCount} restaurants", restaurants.Count());
             return restaurants;
         }
+
+        public async Task<Restaurant?> GetRestaurantById(Guid id)
+        {
+            logger.LogInformation("Retrieving restaurant with id {RestaurantId}", id);
+            var restaurant = await restaurantRepository.GetByIdAsync(id);
+            if (restaurant == null)
+            {
+                logger.LogWarning("Restaurant with id {RestaurantId} was not found", id);
+                
+            }
+            else
+            {
+                logger.LogInformation("Retrieved restaurant with id {RestaurantId}", id);
+            }
+            return restaurant;
+        }
+
     }
 }

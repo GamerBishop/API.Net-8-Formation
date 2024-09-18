@@ -47,7 +47,7 @@ namespace Restaurants.Infrastructure.Migrations
                     b.Property<Guid>("RestaurantId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("kiloCalories")
+                    b.Property<int?>("KiloCalories")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

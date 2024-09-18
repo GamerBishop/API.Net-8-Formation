@@ -5,13 +5,13 @@
 namespace Restaurants.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class kiloCalories : Migration
+    public partial class KiloCalories : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<int>(
-                name: "kiloCalories",
+                name: "KiloCalories",
                 table: "Dishes",
                 type: "int",
                 nullable: true);
@@ -21,7 +21,7 @@ namespace Restaurants.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "kiloCalories",
+                name: "KiloCalories",
                 table: "Dishes");
         }
     }
