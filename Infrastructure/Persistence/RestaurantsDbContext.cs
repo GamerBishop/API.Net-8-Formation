@@ -8,15 +8,10 @@ using System.Threading.Tasks;
 
 namespace Restaurants.Infrastructure.Persistence
 {
-    internal class RestaurantsDbContext : DbContext
+    internal class RestaurantsDbContext(DbContextOptions<RestaurantsDbContext> dbContextOptions) : DbContext(dbContextOptions)
     {
         internal DbSet<Restaurant> Restaurants { get; set; }
         internal DbSet<Dish> Dishes { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Restaurants;Trusted_Connection=True;");
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
