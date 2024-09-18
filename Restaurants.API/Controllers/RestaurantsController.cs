@@ -24,8 +24,4 @@ public class RestaurantsController(IRestaurantService restaurantService) : Contr
         }
         return Ok(restaurant);
     }
-
-
-
-
 }

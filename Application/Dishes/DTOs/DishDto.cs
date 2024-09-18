@@ -15,31 +15,5 @@ namespace Restaurants.Application.Dishes.DTOs
         public decimal Price { get; set; }
         public bool IsVegetarian { get; set; }
         public int? KiloCalories { get; set; }
-
-        public static DishDto FromEntity(Dish dish)
-        {
-            return new DishDto
-            {
-                Id = dish.Id,
-                Name = dish.Name,
-                Description = dish.Description,
-                Price = dish.Price,
-                IsVegetarian = dish.IsVegetarian,
-                KiloCalories = dish.KiloCalories
-            };
-        }
-
-        public static Dish ToEntity(DishDto dishDto)
-        {
-            return new Dish
-            {
-                Id = dishDto.Id,
-                Name = dishDto.Name,
-                Description = dishDto.Description,
-                Price = dishDto.Price,
-                IsVegetarian = dishDto.IsVegetarian,
-                KiloCalories = dishDto.KiloCalories
-            };
-        }
     }
 }

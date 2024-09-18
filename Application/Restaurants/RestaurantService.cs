@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using AutoMapper;
+using Microsoft.Extensions.Logging;
 using Restaurants.Application.Dishes.DTOs;
 using Restaurants.Application.Restaurants.DTOs;
 using Restaurants.Domain.Entities;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Restaurants.Application.Restaurants
 {
-    public class RestaurantService(IRestaurantRepository restaurantRepository, ILogger<RestaurantService> logger) : IRestaurantService
+    public class RestaurantService(IRestaurantRepository restaurantRepository, ILogger<RestaurantService> logger, IMapper mapper) : IRestaurantService
     {
         public async Task<IEnumerable<RestaurantDto>> GetAllRestaurants()
         {
@@ -19,24 +20,7 @@ namespace Restaurants.Application.Restaurants
             var restaurants = await restaurantRepository.GetAllAsync();
             logger.LogInformation("Retrieved {RestaurantCount} restaurants", restaurants.Count());
 
-            var restaurantsDtos = restaurants.Select(restaurant => new RestaurantDto
-            {
-                Id = restaurant.Id,
-                Name = restaurant.Name,
-                Description = restaurant.Description,
-                Category = restaurant.Category,
-                HasDelivery = restaurant.HasDelivery,
-                City = restaurant.Adress?.City,
-                Street = restaurant.Adress?.Street,
-                ZipCode = restaurant.Adress?.ZipCode,
-                Dishes = restaurant.Dishes.Select(dish => new DishDto
-                {
-                    Id = dish.Id,
-                    Name = dish.Name,
-                    Description = dish.Description,
-                    Price = dish.Price
-                }).ToList()
-            });
+            var restaurantsDtos = mapper.Map<IEnumerable<RestaurantDto>>(restaurants);
 
             return restaurantsDtos;
         }
@@ -54,7 +38,8 @@ namespace Restaurants.Application.Restaurants
             {
                 logger.LogInformation("Retrieved restaurant with id {RestaurantId}", id);
             }
-            var restaurantDto = RestaurantDto.FromEntity(restaurant);
+
+            var restaurantDto = mapper.Map<RestaurantDto>(restaurant);
 
             return restaurantDto;
         }

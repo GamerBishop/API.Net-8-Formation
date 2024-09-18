@@ -21,46 +21,6 @@ namespace Restaurants.Application.Restaurants.DTOs
         public string? ZipCode { get; set; }
 
         public List<DishDto> Dishes { get; set; } = [];
-
-
-        public static RestaurantDto? FromEntity(Restaurant restaurant)
-        {
-            if (restaurant == null) return null;
-
-            return new RestaurantDto
-            {
-                Id = restaurant.Id,
-                Name = restaurant.Name,
-                Description = restaurant.Description,
-                Category = restaurant.Category,
-                HasDelivery = restaurant.HasDelivery,
-                City = restaurant.Adress?.City,
-                Street = restaurant.Adress?.Street,
-                ZipCode = restaurant.Adress?.ZipCode,
-                Dishes = restaurant.Dishes.Select(dish => DishDto.FromEntity(dish)).ToList()
-            };
-        }
-
-        public static Restaurant? ToEntity(RestaurantDto restaurantDto)
-        {
-            if (restaurantDto == null) return null;
-
-            return new Restaurant
-            {
-                Id = restaurantDto.Id,
-                Name = restaurantDto.Name,
-                Description = restaurantDto.Description,
-                Category = restaurantDto.Category,
-                HasDelivery = restaurantDto.HasDelivery,
-                Adress = new Adress
-                {
-                    City = restaurantDto.City,
-                    Street = restaurantDto.Street,
-                    ZipCode = restaurantDto.ZipCode
-                },
-                Dishes = restaurantDto.Dishes.Select(dishDto => DishDto.ToEntity(dishDto)).ToList()
-            };
-        }
     }
 }
 
