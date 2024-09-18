@@ -5,6 +5,6 @@ namespace Restaurants.Application.Restaurants
     public interface IRestaurantService
     {
         Task<IEnumerable<Restaurant>> GetAllRestaurants();
-        Task<Restaurant> GetRestaurantById(Guid id);
+        Task<Restaurant?> GetRestaurantById(Guid id);
     }
 }
