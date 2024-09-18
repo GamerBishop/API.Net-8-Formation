@@ -47,8 +47,13 @@ Content-Type: application/json
   "Category": "French",
   "HasDelivery": false,
   "ContactEmail": "lacroisette@info.fr",
-  "ContactNumber": "05 46 56 78 90",
+  "ContactNumber": "0546567890",
   "City": "Chatelaillon-Plage",
   "Street" : "Boulevard de la Mer",
   "ZipCode": "17-340"
 }
+
+
+###
+  
+  GET https://localhost:7226/api/Restaurants/b7c4d6a6-c52a-4a71-1e35-08dcd8322edc
