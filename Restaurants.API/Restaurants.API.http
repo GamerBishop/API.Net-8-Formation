@@ -4,42 +4,6 @@
 
 @RestaurantsAPI_HostAddress = {{Host}}:{{Port}}
 
-GET {{RestaurantsAPI_HostAddress}}/weatherforecast/ExampleGet
-Accept: application/json
-Guid: {{$guid}}
-LocalDate : {{$datetime iso8601}}
-Random-int : {{$randomInt}}
-
-###
-
-POST {{RestaurantsAPI_HostAddress}}/weatherforecast/
-Content-Type: application/json
-{
-  "email" : "test@test.com"  
-}
-###
-
-GET {{RestaurantsAPI_HostAddress}}/weatherforecast/CurrentDay
-
-###
-
-GET {{RestaurantsAPI_HostAddress}}/weatherforecast/1587/ExampleGet?max=35
-
-###
-
-POST {{RestaurantsAPI_HostAddress}}/weatherforecast
-Content-Type: application/json
-
-"Godot"
-
-###
-
-POST {{RestaurantsAPI_HostAddress}}/weatherforecast/generate?numberOfResults=100
-Content-Type: application/json
-  {
-    "MinTemperature" : "-50",
-    "MaxTemperature" : "60"
-  }
-
+GET {{RestaurantsAPI_HostAddress}}/api/restaurants
 
 ###
