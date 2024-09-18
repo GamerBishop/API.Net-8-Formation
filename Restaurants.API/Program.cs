@@ -1,5 +1,6 @@
 using Restaurants.API.Controllers;
 using Restaurants.Infrastructure.Extensions;
+using Restaurants.Infrastructure.Seeders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +38,11 @@ qui sont coûteux à créer.*/
 //builder.Services.AddSingleton<IWeatherForecastService, WeatherForecastService>();
 
 var app = builder.Build();
+
+// Seed the database
+var scope = app.Services.CreateScope();
+var seeder = scope.ServiceProvider.GetRequiredService<IRestaurantSeeder>();
+await seeder.Seed();
 
 // Configure the HTTP request pipeline.
 app.UseHttpsRedirection();
