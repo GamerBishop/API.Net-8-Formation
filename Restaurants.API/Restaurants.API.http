@@ -57,3 +57,8 @@ Content-Type: application/json
 ###
   
   GET https://localhost:7226/api/Restaurants/b7c4d6a6-c52a-4a71-1e35-08dcd8322edc
+  
+  
+###
+  
+  GET https://localhost:7226/api/Restaurants/2a320e91-44ab-4ba0-b5c2-08dcda56a133

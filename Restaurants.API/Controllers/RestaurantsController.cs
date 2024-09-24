@@ -1,24 +1,28 @@
 ﻿
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Restaurants.Application.Restaurants;
+using Restaurants.Application.Restaurants.Commands.CreateRestaurant;
 using Restaurants.Application.Restaurants.DTOs;
+using Restaurants.Application.Restaurants.Querys.GetAllRestaurants;
+using Restaurants.Application.Restaurants.Querys.GetRestaurantById;
 
 namespace Restaurants.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class RestaurantsController(IRestaurantService restaurantService) : ControllerBase
+public class RestaurantsController(IMediator mediator) : ControllerBase
 {
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        var restaurants = await restaurantService.GetAllRestaurants();
+        var restaurants = await mediator.Send(new GetAllRestaurantsQuery());
         return Ok(restaurants);
     }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById([FromRoute]Guid id){
-        var restaurant = await restaurantService.GetRestaurantById(id);
+        var restaurant = await mediator.Send(new GetRestaurantByIdQuery(id));
         if (restaurant == null)
         {
             return NotFound();
@@ -27,14 +31,14 @@ public class RestaurantsController(IRestaurantService restaurantService) : Contr
     }
 
     [HttpPost("create")]
-    public async Task<IActionResult> Create(CreateRestaurantDto createRestaurantDto)
+    public async Task<IActionResult> Create(CreateRestaurantCommand createRestaurantCommand)
     {
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
 
-        Guid id = await restaurantService.CreateRestaurant(createRestaurantDto);
+        Guid id = await mediator.Send(createRestaurantCommand);
         return CreatedAtAction(nameof(GetById), new { id }, null);
     }
 }

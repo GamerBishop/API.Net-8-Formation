@@ -11,11 +11,11 @@ public static class ServiceCollectionExtensions
     public static void AddApplication(this IServiceCollection services)
     {
 
-        System.Reflection.Assembly assembly = typeof(ServiceCollectionExtensions).Assembly;
+        System.Reflection.Assembly applicationAssembly = typeof(ServiceCollectionExtensions).Assembly;
 
-        services.AddScoped<IRestaurantService, RestaurantService>();
-        services.AddAutoMapper(assembly);
-        services.AddValidatorsFromAssemblies([assembly]).AddFluentValidationAutoValidation();
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(applicationAssembly));
+        services.AddAutoMapper(applicationAssembly);
+        services.AddValidatorsFromAssemblies([applicationAssembly]).AddFluentValidationAutoValidation();
     }
 }
 

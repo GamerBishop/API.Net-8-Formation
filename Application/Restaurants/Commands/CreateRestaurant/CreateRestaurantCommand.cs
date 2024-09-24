@@ -1,8 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MediatR;
 
-namespace Restaurants.Application.Restaurants.DTOs;
+namespace Restaurants.Application.Restaurants.Commands.CreateRestaurant;
 
-public class CreateRestaurantDto
+public class CreateRestaurantCommand : IRequest<Guid> // Return of the command : Int as we want the Id of the created entity
 {
     public string Name { get; set; } = default!;
     public string Description { get; set; } = default!;
