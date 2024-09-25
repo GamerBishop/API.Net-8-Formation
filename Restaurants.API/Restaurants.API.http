@@ -71,3 +71,25 @@ DELETE {{Restaurants.API_HostAddress}}/api/restaurants/2a320e91-44ab-4ba0-b5c2-0
 ###
 
 
+
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/{id}
+
+###
+
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/b7c4d6a6-c52a-4a71-1e35-08dcd8322edc
+Content-Type: application/json
+
+{
+ "Name" : "Meat Up",
+ "Description" : "Restarant carnivore",
+ "HasDelivery" : true
+}
+
+###
+
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/b7c4d6a6-c52a-4a71-1e35-08dcd8322edc
+Content-Type: application/json
+
+{
+ "Name" : "MU"
+}

@@ -32,4 +32,11 @@ internal class RestaurantRepository(RestaurantsDbContext context) : IRestaurantR
         var ret = await context.SaveChangesAsync();
         return true;
     }
+
+    public async Task<Boolean> UpdateAsync(Restaurant restaurant)
+    {
+        context.Restaurants.Update(restaurant);
+        var ret = await context.SaveChangesAsync();
+        return true;
+    }
 }
