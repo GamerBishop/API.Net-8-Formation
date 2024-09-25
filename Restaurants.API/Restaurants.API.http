@@ -43,7 +43,7 @@ POST {{RestaurantsAPI_HostAddress}}/api/restaurants/create
 Content-Type: application/json
 {
  
-  "Name": "La Croisette",
+  "Name": "La Croisette2",
   "Description": "La Croisette est un restaurant à Chatelaillon-Plage, situé sur le bord de mer, à côté du casino.",
   "Category": "French",
   "HasDelivery": false,

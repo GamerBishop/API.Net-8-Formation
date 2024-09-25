@@ -8,7 +8,7 @@ public class DeleteRestaurantByIdCommandHandler(ILogger<DeleteRestaurantByIdComm
 {
     public async Task<Boolean>  Handle(DeleteRestaurantByIdCommand request, CancellationToken cancellationToken)
     {
-        logger.LogInformation($"Deleting restaurant with id {request.Id}");
+        logger.LogInformation("Deleting restaurant with id {RestaurantId}", request.Id);
 
         //Delete restaurant logic
         var restaurant = await repository.GetByIdAsync(request.Id);
