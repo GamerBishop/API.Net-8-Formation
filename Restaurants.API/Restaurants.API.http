@@ -1,3 +1,4 @@
+@Restaurants.API_HostAddress = https://localhost:7226
 @Host = https://localhost
 @Port = 7226
 
@@ -62,3 +63,11 @@ Content-Type: application/json
 ###
   
   GET https://localhost:7226/api/Restaurants/2a320e91-44ab-4ba0-b5c2-08dcda56a133
+  
+
+###
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/2a320e91-44ab-4ba0-b5c2-08dcda56a133
+
+###
+
+
