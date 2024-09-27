@@ -29,14 +29,16 @@ internal class RestaurantRepository(RestaurantsDbContext context) : IRestaurantR
     public async Task<Boolean> DeleteAsync(Restaurant restaurant)
     {
         context.Restaurants.Remove(restaurant);
-        var ret = await context.SaveChangesAsync();
+        await context.SaveChangesAsync();
         return true;
     }
 
     public async Task<Boolean> UpdateAsync(Restaurant restaurant)
     {
         context.Restaurants.Update(restaurant);
-        var ret = await context.SaveChangesAsync();
+        await context.SaveChangesAsync();
         return true;
     }
+
+
 }

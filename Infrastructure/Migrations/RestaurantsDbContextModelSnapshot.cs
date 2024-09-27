@@ -37,7 +37,7 @@ namespace Restaurants.Infrastructure.Migrations
                     b.Property<bool>("IsVegetarian")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Nom")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -80,7 +80,7 @@ namespace Restaurants.Infrastructure.Migrations
                     b.Property<bool>("HasDelivery")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Nom")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
