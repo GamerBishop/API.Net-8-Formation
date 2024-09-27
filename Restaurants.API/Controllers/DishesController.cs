@@ -32,27 +32,29 @@ namespace Restaurants.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateDish([FromRoute] Guid restaurantGuid, CreateDishCommand createDishCommand)
         {
+            createDishCommand.RestaurantId = restaurantGuid;
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            createDishCommand.RestaurantId = restaurantGuid;
             int id = await mediator.Send(createDishCommand);
             return CreatedAtAction(nameof(GetDishById), new { restaurantGuid, id }, null);
         }
 
         [HttpPatch]
         [Route("{id}")]
-        public async Task<IActionResult> UpdateDish([FromRoute] Guid restaurantGuid, int id, UpdateDishCommand updateDishCommand)
+        public async Task<IActionResult> UpdateDish([FromRoute] Guid restaurantGuid, [FromRoute] int Id, UpdateDishCommand updateDishCommand)
         {
+            updateDishCommand.Id = Id;
+            updateDishCommand.RestaurantGuid = restaurantGuid;
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            updateDishCommand.Id = id;
-            updateDishCommand.RestaurantId = restaurantGuid;
             await mediator.Send(updateDishCommand);
             return NoContent();
         }
