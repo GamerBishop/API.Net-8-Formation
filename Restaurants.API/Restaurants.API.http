@@ -93,3 +93,18 @@ Content-Type: application/json
 {
  "Name" : "MU"
 }
+
+###
+
+PATCH {{Restaurants.API_HostAddress}}/api/restaurant/a386205c-79da-4b2b-edf5-08dcdda742c2/dishes/7
+Content-Type: application/json
+
+{
+  "name": "Byop",
+  "description": "Yo",
+  "price": 10,
+  "isVegetarian": false,
+  "kiloCalories": 120
+}
+
+###

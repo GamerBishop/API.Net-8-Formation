@@ -8,7 +8,7 @@ using Restaurants.Domain.Repositories;
 
 namespace Restaurants.Application.Dishes.Querys.GetDishById;
 
-public class GetDishByIdQueryHandler(ILogger<GetDishByIdQueryHandler> logger, IRestaurantRepository restaurantRepository, IDishRepository dishRepository, IMapper mapper) : IRequestHandler<GetDishByIdQuery, DishDto>
+public class GetDishByIdQueryHandler(ILogger<GetDishByIdQueryHandler> logger, IRestaurantRepository restaurantRepository, IMapper mapper) : IRequestHandler<GetDishByIdQuery, DishDto>
 {
     public async Task<DishDto> Handle(GetDishByIdQuery request, CancellationToken cancellationToken)
     {
@@ -16,12 +16,8 @@ public class GetDishByIdQueryHandler(ILogger<GetDishByIdQueryHandler> logger, IR
      
         var restaurant = await restaurantRepository.GetByIdAsync(request.RestaurantId) ?? throw new NotFoundException(nameof(Restaurant), request.RestaurantId.ToString());
 
-        var result = restaurant.Dishes.FirstOrDefault(d => d.Id == request.Id);
-        if (result == null)
-        {
-            throw new NotFoundException(nameof(Dish), request.Id.ToString());
-        }
-
+        var result = restaurant.Dishes.FirstOrDefault(d => d.Id == request.Id) ?? throw new NotFoundException(nameof(Dish), request.Id.ToString());
+        
         var dishDto = mapper.Map<DishDto>(result);
 
         return dishDto;

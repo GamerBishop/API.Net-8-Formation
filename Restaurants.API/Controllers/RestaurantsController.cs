@@ -58,12 +58,12 @@ public class RestaurantsController(IMediator mediator) : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Update([FromRoute] Guid id, UpdateRestaurantCommand updateRestaurantCommand)
     {
+        updateRestaurantCommand.Id = id;
+
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
-
-        updateRestaurantCommand.Id = id;
         await mediator.Send(updateRestaurantCommand);
 
         return NoContent();

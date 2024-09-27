@@ -27,23 +27,10 @@ internal class DishRepository(RestaurantsDbContext context) : IDishRepository
         return dishes;
     }
 
-    public async Task<Dish?> GetDishByIdAsync(int id)
-    {
-        var dish = await context.Dishes.FindAsync(id);
-        return dish;
-    }
-
     public async Task<bool> UpdateDishAsync(Dish dish)
     {
         context.Dishes.Update(dish);
         await context.SaveChangesAsync();
         return true;
     }
-
-    public async Task<IEnumerable<Dish>> GetAllDishesFromRestaurantAsync(Guid restaurantId)
-    {
-        var dishes = await context.Dishes.Where(d => d.RestaurantId == restaurantId).ToListAsync();
-        return dishes;
-    }
-
 }

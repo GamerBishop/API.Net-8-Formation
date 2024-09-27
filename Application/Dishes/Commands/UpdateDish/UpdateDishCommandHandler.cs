@@ -11,11 +11,11 @@ public class UpdateDishCommandHandler(ILogger<UpdateDishCommandHandler> logger, 
 {
     public async Task Handle(UpdateDishCommand request, CancellationToken cancellationToken)
     {
-        logger.LogInformation("Updating dish with id {Id} in restaurant with id {restaurantId}", request.Id, request.RestaurantId);
+        logger.LogInformation("Updating dish with id {Id} in restaurant with id {restaurantId}", request.Id, request.RestaurantGuid);
 
-        var restaurant = await restaurantRepository.GetByIdAsync(request.RestaurantId) ?? throw new NotFoundException(nameof(Restaurant), request.RestaurantId.ToString());
+        var restaurant = await restaurantRepository.GetByIdAsync(request.RestaurantGuid) ?? throw new NotFoundException(nameof(Restaurant), request.RestaurantGuid.ToString());
 
-        var dish = await dishRepository.GetDishByIdAsync(request.Id) ?? throw new NotFoundException(nameof(Dish), request.Id.ToString());
+        var dish = restaurant.Dishes.FirstOrDefault(d => d.Id == request.Id) ?? throw new NotFoundException(nameof(Dish), request.Id.ToString());
 
         mapper.Map(request, dish);
 
