@@ -173,7 +173,7 @@ namespace Restaurants.Infrastructure.Migrations
                     b.Property<int?>("KiloCalories")
                         .HasColumnType("int");
 
-                    b.Property<string>("Nom")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -213,7 +213,7 @@ namespace Restaurants.Infrastructure.Migrations
                     b.Property<bool>("HasDelivery")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Nom")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

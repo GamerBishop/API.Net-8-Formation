@@ -24,7 +24,7 @@ namespace Restaurants.Infrastructure.Seeders
             List<Restaurant> restaurants = [
                 new()
             {
-                Nom = "KFC",
+                Name = "KFC",
                 Category = "Fast Food",
                 Description =
                     "KFC (short for Kentucky Fried Chicken) is an American fast food restaurant chain headquartered in Louisville, Kentucky, that specializes in fried chicken.",
@@ -34,14 +34,14 @@ namespace Restaurants.Infrastructure.Seeders
                 [
                     new ()
                     {
-                        Nom = "Nashville Hot Chicken",
+                        Name = "Nashville Hot Chicken",
                         Description = "Nashville Hot Chicken (10 pcs.)",
                         Price = 10.30M,
                     },
 
                     new ()
                     {
-                        Nom = "Chicken Nuggets",
+                        Name = "Chicken Nuggets",
                         Description = "Chicken Nuggets (5 pcs.)",
                         Price = 5.30M,
                     },
@@ -56,7 +56,7 @@ namespace Restaurants.Infrastructure.Seeders
             },
             new ()
             {
-                Nom = "McDonald",
+                Name = "McDonald",
                 Category = "Fast Food",
                 Description =
                     "McDonald's Corporation (McDonald's), incorporated on December 21, 1964, operates and franchises McDonald's restaurants.",

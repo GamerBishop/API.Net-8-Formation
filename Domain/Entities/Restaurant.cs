@@ -19,7 +19,7 @@ namespace Restaurants.Domain.Entities
         /// <summary>
         /// Obtient ou définit le nom du restaurant.
         /// </summary>
-        public string Nom { get; set; } = default!;
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Obtient ou définit la description du restaurant.
