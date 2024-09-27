@@ -6,7 +6,7 @@ using Restaurants.Domain.Repositories;
 
 namespace Restaurants.Application.Dishes.Commands.DeleteAllDishes;
 
-public class DeleteAllDishesCommandHandler(ILogger<DeleteAllDishesCommandHandler> logger, IRestaurantRepository restaurantRepository) : IRequestHandler<DeleteAllDishesCommand>
+public class DeleteAllDishesCommandHandler(ILogger<DeleteAllDishesCommandHandler> logger, IRestaurantRepository restaurantRepository, IDishRepository dishRepository) : IRequestHandler<DeleteAllDishesCommand>
 {
     public async Task Handle(DeleteAllDishesCommand request, CancellationToken cancellationToken)
     {
@@ -14,8 +14,6 @@ public class DeleteAllDishesCommandHandler(ILogger<DeleteAllDishesCommandHandler
 
         var restaurant = await restaurantRepository.GetByIdAsync(request.RestaurantGuid) ?? throw new NotFoundException(nameof(Restaurant), request.RestaurantGuid.ToString());
 
-        restaurant.Dishes.Clear();
-
-        await restaurantRepository.UpdateAsync(restaurant);
+        await dishRepository.DeleteDishesAsync(restaurant.Dishes);        
     }
 }
