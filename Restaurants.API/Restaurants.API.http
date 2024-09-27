@@ -1,23 +1,31 @@
 @Restaurants.API_HostAddress = https://localhost:7226
 @Host = https://localhost
 @Port = 7226
-@AccesToken = CfDJ8FUx_czOlwhOr4yFD0keTAxYDmhW2xPDZ9IH6Zc9butZRjbYbquZMZzTL02A-oLCL0gpz8iSZ_ZYeFJqqhPGTUe5dvcb0M0pHDcYNeEuWGku0J8Q_DCWBBFlHOzL2xYzR4aEGuN_vuPQHuWO1mO_kAUAwOckuefBcqdEzGmttRZ5dtgoBPhUONwLklc8K5ECsay8KRuHnFBVtu217GIPrcVq-vrENcJlIiFX3Df9fldBZXHCWjsGiS20PkjmqMfA_fRRjwticoBf_gZVrpMBMLI0HN2Sgb___fHFyjx8cz8KoZ74r8BrGXB7gjOo3iMi1OJjkO-vk9pIafaVXi6_N1hi0RZxz-paL5dKVf1On-OUsW-ygalxPAO8mgNtZEzi8TE6So8A7SZnts9j7GGJsHPGiDl7Qc-dShqpz7EpHIPaSF9C9H2yltDNf5MtlG2rWpcXiIkHm-ZaoHlLY4MYjC3DAWKyfOdWPineNn7Tp2QAtPt-Aq9INgTGxa8sRXr2csSZWtofl21atKHo19ZoLe0lBuLCdCSb07NvjJN69pOXWoKs42fOr8lruDfEGBWXnzF1tzQaC2BUxceHpiVgkivMCjz8WixJhi_rQhLRJGcfmzSSwGXVuOcm8C01b39U9OxkaOwGMRAIaWlKu_7_lo-G469EncfjukzkzGWKXPk3YVwdpMd2CvuZ2w7-8K1r9GOLguBOxksU94RJIbhoTOc
+@AccesToken = CfDJ8FUx_czOlwhOr4yFD0keTAz7mNgsOHV9tlpebAHM7ivkAvdO-T1yT9V1IdkLZgo__EeZayiZQelyvIpm2UkLm0SPiKJhmOM1LAyEIllrca2DhlEE-RqNWiSZvObw-ESW_0VaWs33U_A4xkPe3xNF65LrqIPPXQJqu1LkxF7XR4hsHx4dc8BsF4n1oz29j_pbIsVp9w03zgPMvDX3NCx-7scga-xiB_NORLfeKUneF7Z07KJM6Jz6L_D5YSPROH07KLTn4aZa2SsjhCXk1xMO9bxkQFbYPB0y1oA_3dTw1QmJJr4Y6dYzMHHjeCYM9n55t7H28YGT46bVrBkKgQIhQpV699UF1y48rAS5VI83ECvXJcy5Fwr92MhbabOTBJvvIPJ152-bXxBnzvkjUpiVzcEfoJxdQeE5VB-Pk9CZKpahxsSXn-xCFwgOQ0mq97BZOqgccOKqUD71Ew_vUQas_L2yzCr3lIaof1gI-8ESiRZP_IuReaRCIJh30T9Dg2aBpzDxeWtuf0ozToKO6cRTCaEsTrqJb2dnWJea1P1wDE42_sNB2sPFPKpsUod0Qxks7g1-ogkAXi7zMZljPiykgptzJDDyqPROBHrvruqZSJ0bL0meWqXO-ys_Gk46012qd5pnBjbg0bjCpo4LyNp4s68zdHaG6zNl6g2tdYilVivQaRA_Uz3G8aeGgyLb5RVjdGbzPVuDd26p-ujUnjJOBJY
 @RestaurantsAPI_HostAddress = {{Host}}:{{Port}}
+
+
+
 GET {{RestaurantsAPI_HostAddress}}/api/restaurants
 Authorization : Bearer {{AccesToken}}
 ###
+
 GET {{RestaurantsAPI_HostAddress}}/api/restaurants/8A221E03-F2A4-44E9-5C17-08DCD803C421
 Authorization : Bearer {{AccesToken}}
 ###
+
 GET {{RestaurantsAPI_HostAddress}}/api/restaurants/8A221E03-F2A4-44E9-5C17-08DCD803C921
 Authorization : Bearer {{AccesToken}}
 ###
+
 GET {{RestaurantsAPI_HostAddress}}/api/Restaurants/c38388c5-5637-4857-4664-08dcd82c5bc1
 Authorization : Bearer {{AccesToken}}
 ###
+
 GET {{RestaurantsAPI_HostAddress}}/api/Restaurants/d6485b6b-cbf7-455b-3acd-08dcd82b4693
 Authorization : Bearer {{AccesToken}}
 ###
+
 POST {{RestaurantsAPI_HostAddress}}/api/restaurants/create
 Authorization : Bearer {{AccesToken}}
 Content-Type: application/json
@@ -33,6 +41,7 @@ Content-Type: application/json
   "ZipCode": "17340"
 }
 ###
+
 POST {{RestaurantsAPI_HostAddress}}/api/restaurants/create
 Authorization : Bearer {{AccesToken}}
 Content-Type: application/json
@@ -48,18 +57,23 @@ Content-Type: application/json
   "ZipCode": "17-340"
 }
 ###
+
 GET https://localhost:7226/api/Restaurants/b7c4d6a6-c52a-4a71-1e35-08dcd8322edc
 Authorization : Bearer {{AccesToken}}
 ###
+
 GET https://localhost:7226/api/Restaurants/2a320e91-44ab-4ba0-b5c2-08dcda56a133
 Authorization : Bearer {{AccesToken}}
 ###
+
 DELETE {{Restaurants.API_HostAddress}}/api/restaurants/2a320e91-44ab-4ba0-b5c2-08dcda56a133
 Authorization : Bearer {{AccesToken}}
 ###
+
 DELETE {{Restaurants.API_HostAddress}}/api/restaurants/{id}
 Authorization : Bearer {{AccesToken}}
 ###
+
 PATCH {{Restaurants.API_HostAddress}}/api/restaurants/b7c4d6a6-c52a-4a71-1e35-08dcd8322edc
 Authorization : Bearer {{AccesToken}}
 Content-Type: application/json
@@ -69,6 +83,7 @@ Content-Type: application/json
  "HasDelivery" : true
 }
 ###
+
 PATCH {{Restaurants.API_HostAddress}}/api/restaurants/b7c4d6a6-c52a-4a71-1e35-08dcd8322edc
 Authorization : Bearer {{AccesToken}}
 Content-Type: application/json
@@ -76,6 +91,7 @@ Content-Type: application/json
  "Name" : "MU"
 }
 ###
+
 PATCH {{Restaurants.API_HostAddress}}/api/restaurant/a386205c-79da-4b2b-edf5-08dcdda742c2/dishes/7
 Authorization : Bearer {{AccesToken}}
 Content-Type: application/json
@@ -87,6 +103,7 @@ Content-Type: application/json
   "kiloCalories": 120
 }
 ###
+
 POST {{RestaurantsAPI_HostAddress}}/api/Identity/login
 Content-Type: application/json
 {
@@ -94,6 +111,7 @@ Content-Type: application/json
   "password": "myPassw0rd!"
 }
 ###
+
 POST {{RestaurantsAPI_HostAddress}}/api/Identity/register
 Content-Type: application/json
 {

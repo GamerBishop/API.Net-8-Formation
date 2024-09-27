@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 
-namespace Restaurants.Application.User;
+namespace Restaurants.Application.Users;
 
 public interface IUserContext
 {
-    Task<CurrentUser> GetCurrentUser();
+    CurrentUser? GetCurrentUser();
 }
 
 public class UserContext(IHttpContextAccessor httpContextAccessor) : IUserContext
 {
-    public async Task<CurrentUser> GetCurrentUser()
+    public CurrentUser? GetCurrentUser()
     {
         var user = httpContextAccessor?.HttpContext?.User ?? throw new InvalidOperationException("User context is not present.");
 
