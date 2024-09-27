@@ -108,3 +108,19 @@ Content-Type: application/json
 }
 
 ###
+
+POST {{RestaurantsAPI_HostAddress}}/login
+Content-Type: application/json
+
+{
+  "email": "myEmail@example.com",
+  "password": "myPassw0rd!"
+}
+###
+POST {{RestaurantsAPI_HostAddress}}/register
+Content-Type: application/json
+
+{
+  "password": "myPassw0rd!",
+  "email": "myEmail@example.com"
+}

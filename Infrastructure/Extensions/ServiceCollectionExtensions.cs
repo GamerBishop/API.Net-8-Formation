@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Restaurants.Infrastructure.Seeders;
 using Restaurants.Infrastructure.Repositories;
 using Restaurants.Domain.Repositories;
+using Restaurants.Domain.Entities;
 
 namespace Restaurants.Infrastructure.Extensions
 {
@@ -15,6 +16,9 @@ namespace Restaurants.Infrastructure.Extensions
             services.AddDbContext<RestaurantsDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("RestaurantsDB"))
                 .EnableSensitiveDataLogging());
+
+            services.AddIdentityApiEndpoints<User>()
+            .AddEntityFrameworkStores<RestaurantsDbContext>();
 
             services.AddScoped<IRestaurantSeeder, RestaurantSeeder>();
 

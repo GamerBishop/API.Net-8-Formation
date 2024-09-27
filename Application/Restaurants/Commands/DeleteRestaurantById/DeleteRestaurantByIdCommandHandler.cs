@@ -15,7 +15,7 @@ public class DeleteRestaurantByIdCommandHandler(ILogger<DeleteRestaurantByIdComm
         var restaurant = await repository.GetByIdAsync(request.Id);
         if (restaurant == null)
         {
-            logger.LogWarning($"Restaurant with id {request.Id} not found");
+            logger.LogWarning("Restaurant with id {requestId} not found", request.Id);
             throw new NotFoundException("Restaurant", request.Id.ToString());
         }
 

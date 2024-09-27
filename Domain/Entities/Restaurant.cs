@@ -19,7 +19,7 @@ namespace Restaurants.Domain.Entities
         /// <summary>
         /// Obtient ou définit le nom du restaurant.
         /// </summary>
-        public string Name { get; set; } = default!;
+        public string Nom { get; set; } = default!;
 
         /// <summary>
         /// Obtient ou définit la description du restaurant.
@@ -54,6 +54,6 @@ namespace Restaurants.Domain.Entities
         /// <summary>
         /// Obtient ou définit la liste des plats proposés par le restaurant.
         /// </summary>
-        public List<Dish> Dishes { get; set; } = new List<Dish>();
+        public List<Dish> Dishes { get; set; } = [];
     }
 }
