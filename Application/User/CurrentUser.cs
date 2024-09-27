@@ -2,6 +2,6 @@
 
 public record CurrentUser(string Id, string Email, IEnumerable<string> Roles)
 {
-    public bool isEnroledIn(string role) => Roles.Contains(role);
-    public bool isAdministrator => isEnroledIn("Admin");
+    public bool IsEnroledIn(string role) => Roles.Contains(role);
+    public bool IsAdministrator => IsEnroledIn("Admin");
 }

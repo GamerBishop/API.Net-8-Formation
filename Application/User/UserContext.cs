@@ -12,11 +12,7 @@ public class UserContext(IHttpContextAccessor httpContextAccessor) : IUserContex
 {
     public async Task<CurrentUser> GetCurrentUser()
     {
-        var user = httpContextAccessor?.HttpContext?.User;
-        if (user == null)
-        {
-            throw new InvalidOperationException("User context is not present.");
-        }
+        var user = httpContextAccessor?.HttpContext?.User ?? throw new InvalidOperationException("User context is not present.");
 
         if (user.Identity == null || !user.Identity.IsAuthenticated)
         {
@@ -29,7 +25,4 @@ public class UserContext(IHttpContextAccessor httpContextAccessor) : IUserContex
 
         return new CurrentUser(userId, email, roles);
     }
-}
-{
-
 }
