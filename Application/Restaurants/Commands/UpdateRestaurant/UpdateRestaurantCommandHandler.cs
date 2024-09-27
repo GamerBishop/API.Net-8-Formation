@@ -1,35 +1,26 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using Microsoft.Extensions.Logging;
+using Restaurants.Domain.Exceptions;
 using Restaurants.Domain.Repositories;
 
 namespace Restaurants.Application.Restaurants.Commands.UpdateRestaurant;
 
-public class UpdateRestaurantCommandHandler(ILogger<UpdateRestaurantCommandHandler> _logger, IRestaurantRepository restaurantRepository ) : IRequestHandler<UpdateRestaurantCommand, Boolean>
+public class UpdateRestaurantCommandHandler(ILogger<UpdateRestaurantCommandHandler> _logger, IRestaurantRepository restaurantRepository, IMapper mapper ) : IRequestHandler<UpdateRestaurantCommand>
 {
-    public async Task<Boolean> Handle(UpdateRestaurantCommand request, CancellationToken cancellationToken)
+    public async Task Handle(UpdateRestaurantCommand request, CancellationToken cancellationToken)
     {
         _logger.LogInformation("Updating restaurant with id : {RestaurantId} with {@UpdatedRestaurant}", request.Id, request);
-        // Update restaurant logic
-        if (request == null)
-        {
-            _logger.LogWarning("UpdateRestaurantCommand is null");
-            return false;
-        }
-
+        
         var restaurant = await restaurantRepository.GetByIdAsync(request.Id);
         if (restaurant == null)
         {
             _logger.LogWarning($"Restaurant with id {request.Id} not found");
-            return false;
+            throw new NotFoundException("Restaurant", request.Id.ToString());
         }
 
-        restaurant.Name = request.Name;
-        restaurant.Description = request.Description;
-        restaurant.HasDelivery = request.HasDelivery == true ? true : false;
+        mapper.Map(request, restaurant);
 
-        var isUpdated = await restaurantRepository.UpdateAsync(restaurant);
-
-
-        return isUpdated;
+        await restaurantRepository.UpdateAsync(restaurant);
     }
 }

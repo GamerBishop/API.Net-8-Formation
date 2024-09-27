@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using Restaurants.Domain.Exceptions;
+using System.Net;
 
 namespace Restaurants.API.Middlewares;
 
@@ -16,6 +17,12 @@ public class ErrorHandlingMiddleware : IMiddleware
         try
         {
             await next(context);
+        }
+        catch (NotFoundException notFound)
+        {
+            _logger.LogError(notFound, "An unhandled exception has occurred");
+            context.Response.StatusCode = (int)HttpStatusCode.NotFound;
+            await context.Response.WriteAsync(notFound.Message);
         }
         catch (Exception ex)
         {
