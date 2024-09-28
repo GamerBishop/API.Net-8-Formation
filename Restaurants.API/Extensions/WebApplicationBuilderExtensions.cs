@@ -1,5 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 using Restaurants.API.Middlewares;
+using Restaurants.API.Middlewares.Swagger;
 using Serilog;
 using System.Reflection;
 

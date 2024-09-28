@@ -6,13 +6,15 @@ using Restaurants.Domain.Entities;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Collections.Generic;
 
+namespace Restaurants.API.Middlewares.Swagger;
+
 public class SwaggerResponseStatusCodeFilter : IOperationFilter
 {
     public void Apply(OpenApiOperation operation, OperationFilterContext context)
     {
-         if (operation.Responses.ContainsKey("404"))
+        if (operation.Responses.TryGetValue("404", out OpenApiResponse? value))
         {
-            operation.Responses["404"].Content = new Dictionary<string, OpenApiMediaType>
+            value.Content = new Dictionary<string, OpenApiMediaType>
             {
                 ["application/json"] = new OpenApiMediaType
                 {

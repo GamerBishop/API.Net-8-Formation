@@ -14,8 +14,8 @@ UserManager<User> userManager,
     public async Task Handle(AssignUserRoleCommand request, CancellationToken cancellationToken)
     {
         logger.LogInformation("Assigning user role: {@Request}", request);
-        var user = await userManager.FindByEmailAsync(request.UserEmail)
-            ?? throw new NotFoundException(nameof(User), request.UserEmail);
+        var user = await userManager.FindByEmailAsync(request.Email)
+            ?? throw new NotFoundException(nameof(User), request.Email);
 
         var role = await roleManager.FindByNameAsync(request.Role)
             ?? throw new NotFoundException(nameof(IdentityRole), request.Role);
