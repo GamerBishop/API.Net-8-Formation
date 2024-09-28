@@ -13,7 +13,7 @@ namespace Restaurants.Infrastructure.Migrations
 {
     [DbContext(typeof(RestaurantsDbContext))]
     [Migration("20240928000453_fiwMigration")]
-    partial class fixMigration
+    partial class fiwMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

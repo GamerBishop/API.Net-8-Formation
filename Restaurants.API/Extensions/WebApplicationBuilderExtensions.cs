@@ -1,6 +1,7 @@
 ﻿using Microsoft.OpenApi.Models;
 using Restaurants.API.Middlewares;
 using Serilog;
+using System.Reflection;
 
 namespace Restaurants.API.Extensions
 {
@@ -27,6 +28,14 @@ namespace Restaurants.API.Extensions
                         []
                     }
                 });
+
+                // Chemin du fichier de commentaires XML
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+                // Ajouter le filtre pour les exemples de réponses
+                c.OperationFilter<SwaggerResponseStatusCodeFilter>();
+
             });
 
             builder.Services.AddEndpointsApiExplorer();
