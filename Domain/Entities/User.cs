@@ -4,6 +4,6 @@ namespace Restaurants.Domain.Entities;
 
 public class User : IdentityUser
 {
-    public DateOnly BirthDate { get; set; }
-    public string Nationality { get; set; }
+    public DateOnly? BirthDate { get; set; }
+    public string? Nationality { get; set; }
 }

@@ -1,7 +1,11 @@
 @Restaurants.API_HostAddress = https://localhost:7226
 @Host = https://localhost
 @Port = 7226
-@AccesToken = CfDJ8FUx_czOlwhOr4yFD0keTAz7mNgsOHV9tlpebAHM7ivkAvdO-T1yT9V1IdkLZgo__EeZayiZQelyvIpm2UkLm0SPiKJhmOM1LAyEIllrca2DhlEE-RqNWiSZvObw-ESW_0VaWs33U_A4xkPe3xNF65LrqIPPXQJqu1LkxF7XR4hsHx4dc8BsF4n1oz29j_pbIsVp9w03zgPMvDX3NCx-7scga-xiB_NORLfeKUneF7Z07KJM6Jz6L_D5YSPROH07KLTn4aZa2SsjhCXk1xMO9bxkQFbYPB0y1oA_3dTw1QmJJr4Y6dYzMHHjeCYM9n55t7H28YGT46bVrBkKgQIhQpV699UF1y48rAS5VI83ECvXJcy5Fwr92MhbabOTBJvvIPJ152-bXxBnzvkjUpiVzcEfoJxdQeE5VB-Pk9CZKpahxsSXn-xCFwgOQ0mq97BZOqgccOKqUD71Ew_vUQas_L2yzCr3lIaof1gI-8ESiRZP_IuReaRCIJh30T9Dg2aBpzDxeWtuf0ozToKO6cRTCaEsTrqJb2dnWJea1P1wDE42_sNB2sPFPKpsUod0Qxks7g1-ogkAXi7zMZljPiykgptzJDDyqPROBHrvruqZSJ0bL0meWqXO-ys_Gk46012qd5pnBjbg0bjCpo4LyNp4s68zdHaG6zNl6g2tdYilVivQaRA_Uz3G8aeGgyLb5RVjdGbzPVuDd26p-ujUnjJOBJY
+
+@AdminAccesToken = CfDJ8FUx_czOlwhOr4yFD0keTAzmlaKZo5hvH-M4RD7wMLs7q1CHt0CV9YIXqOw3CeY6BagZYpUPJSfQSS-3mUr8DnPS_h52CL5aDkU-1RUpAUobEzwifoWxZzUBW3ONIvPX2MKIh-Fe07-BNrzXRQCTjbHmc2uG11Y5F9KL4EEfAZUQAPaM-qzqG7RIJGCYKCzTEYZ6iIGeVvUWnjr2NNx2I1ObgMt622eovVEXm8cqwPCbp9kjy7yVib_GbARDo50kj4y7zGQ6ZyMsAm2xfc-1nuKCFwH1n007i71DCnvp_XbN3bMc9-EMqI8wO-tJYeh0z_3RQkuukFv-H8GW9Jc0DqRXw6xBAI507ImvEEq2PCXCwImqWMjGc_oxPkitByVgZXjEYCdyBhpejqBQGFEmVZnDhJ4-yDqyIv44NHt-hrvU5y-h7z8-Q8iAtcsoG8a2S7V2TI3FxD0gWylqwT-WsEMgZgxhCWDhoQ4M0yOdoyLXLzDu0y0aY-0j_Whk3vJLQnrSeDFQGNx_W_ZthnwCIqWTb3JpWIss2yxUmYH3yXHpsW9OIb-d3f-Z-_mD7W9-6EcDlp_2jnlMG7e7SZKnUWSXCsRbJchi0kAZUQl-UxF81c9cuEku6K-_dLRyPJ1RVLItXvEVCz5UE7rQjAL6mL6MuzzoR-mJPaE_C3VZcM0fZ4yydkTzhV8a3aS6vJDn3Z6SXgfwSUtRJoOzkPlhZgw
+@SimpleAccesToken = CfDJ8FUx_czOlwhOr4yFD0keTAz7mNgsOHV9tlpebAHM7ivkAvdO-T1yT9V1IdkLZgo__EeZayiZQelyvIpm2UkLm0SPiKJhmOM1LAyEIllrca2DhlEE-RqNWiSZvObw-ESW_0VaWs33U_A4xkPe3xNF65LrqIPPXQJqu1LkxF7XR4hsHx4dc8BsF4n1oz29j_pbIsVp9w03zgPMvDX3NCx-7scga-xiB_NORLfeKUneF7Z07KJM6Jz6L_D5YSPROH07KLTn4aZa2SsjhCXk1xMO9bxkQFbYPB0y1oA_3dTw1QmJJr4Y6dYzMHHjeCYM9n55t7H28YGT46bVrBkKgQIhQpV699UF1y48rAS5VI83ECvXJcy5Fwr92MhbabOTBJvvIPJ152-bXxBnzvkjUpiVzcEfoJxdQeE5VB-Pk9CZKpahxsSXn-xCFwgOQ0mq97BZOqgccOKqUD71Ew_vUQas_L2yzCr3lIaof1gI-8ESiRZP_IuReaRCIJh30T9Dg2aBpzDxeWtuf0ozToKO6cRTCaEsTrqJb2dnWJea1P1wDE42_sNB2sPFPKpsUod0Qxks7g1-ogkAXi7zMZljPiykgptzJDDyqPROBHrvruqZSJ0bL0meWqXO-ys_Gk46012qd5pnBjbg0bjCpo4LyNp4s68zdHaG6zNl6g2tdYilVivQaRA_Uz3G8aeGgyLb5RVjdGbzPVuDd26p-ujUnjJOBJY
+@OwnerAccesToken = CfDJ8FUx_czOlwhOr4yFD0keTAxj_RC6wsWqEdnm5YwKVoyJdu6lZGeY2kV1Cm4SnIvV1VBAFxD8A0odf3u-lzKUF6_RlBlWvJTDwIWfNUz8H2ccU9xFt6CpYdWt-mvOroWs0kFHAHMVzZJLL7dDxaQKAVDARb3XJ4SD8g7JtDxPoGZdJaCasz5TCHzcr6WkFyPCnSMgwbL_9hR8nCKGEQDubWxyTzVF6tdoN586_DMbIeiFC_Jzsc35N4OijhF5VgqpwjeokKsVNfQHpTlRkEGRZDNHdi1gwssK9Iesfve56qsg2iwZ3gdJheXXQf7TN60RaF0WGrzuEJjulwnYPYBOvTlzGK-mToOK9cT9K6_Bfjm29Z31voOgLcLk6DbdY6xkX824llMgIzTLJ9T-yqZLWA502fOM9nvm5xlo8iPMujdeZRo2_8LQoC7Gc85W2mJ1i-NCTf5lvqFIX64XJV8vF7Cpmh7KlNSD8EwLqge3kgS4TZnXDGEoqbJH8QySaROF18UwawUIEVwHbKLVLwbhJ_6LOXbc7keyKDD3BRGY1f6TQ2AVt-OMZ_xSUMQahVzeg5u7M3Rekq3ai1vdPNg06uwnyMGwDGgfOWi5KpZqlAYq7_8a6LxmgbqrkgZTSOa4tdbELl2PcmxLRbUmVj3HAggM0XEzHZGL2OeEQBeM1k8-tP3FsNbnS5QkyHitD78_CE4OJ-zCHAefY_Q0gA6GGWc3KgdEVnyET_RYSvn54LUzrC323l1JOZonoNlzDt0EZc6s2I5DjmRGYAj9HqcyqyT60-Ue66Pfnc71G8dudMeaS4M6lyPSZ5wlDqj63RWwpA
+
 @RestaurantsAPI_HostAddress = {{Host}}:{{Port}}
 
 
@@ -27,7 +31,7 @@ Authorization : Bearer {{AccesToken}}
 ###
 
 POST {{RestaurantsAPI_HostAddress}}/api/restaurants/create
-Authorization : Bearer {{AccesToken}}
+Authorization : Bearer {{OwnerAccesToken}}
 Content-Type: application/json
 {
   "Name": "La Croisette",
@@ -43,7 +47,7 @@ Content-Type: application/json
 ###
 
 POST {{RestaurantsAPI_HostAddress}}/api/restaurants/create
-Authorization : Bearer {{AccesToken}}
+Authorization : Bearer {{OwnerAccesToken}}
 Content-Type: application/json
 {
   "Name": "La Croisette2",
@@ -107,8 +111,8 @@ Content-Type: application/json
 POST {{RestaurantsAPI_HostAddress}}/api/Identity/login
 Content-Type: application/json
 {
-  "email": "myEmail@example.com",
-  "password": "myPassw0rd!"
+  "password": "OwnerP@ssw0rd456!",
+  "email": "owner@restaurant.com"
 }
 ###
 
@@ -117,4 +121,28 @@ Content-Type: application/json
 {
   "password": "myPassw0rd!",
   "email": "myEmail@example.com"
+}
+
+### Créer un Admin
+POST {{RestaurantsAPI_HostAddress}}/api/Identity/register
+Content-Type: application/json
+{
+  "password": "AdminP@ssw0rd123!",
+  "email": "admin@restaurant.com"
+}
+
+### Créer un Owner
+POST {{RestaurantsAPI_HostAddress}}/api/Identity/register
+Content-Type: application/json
+{
+  "password": "OwnerP@ssw0rd456!",
+  "email": "owner@restaurant.com"
+}
+
+### Créer un User lambda
+POST {{RestaurantsAPI_HostAddress}}/api/Identity/register
+Content-Type: application/json
+{
+  "password": "UserP@ssw0rd789!",
+  "email": "user@example.com"
 }

@@ -6,6 +6,7 @@ using Restaurants.Infrastructure.Seeders;
 using Restaurants.Infrastructure.Repositories;
 using Restaurants.Domain.Repositories;
 using Restaurants.Domain.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace Restaurants.Infrastructure.Extensions
 {
@@ -18,6 +19,7 @@ namespace Restaurants.Infrastructure.Extensions
                 .EnableSensitiveDataLogging());
 
             services.AddIdentityApiEndpoints<User>()
+            .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<RestaurantsDbContext>();
 
             services.AddScoped<IRestaurantSeeder, RestaurantSeeder>();
