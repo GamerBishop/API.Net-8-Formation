@@ -2,11 +2,12 @@
 
 public static class PolicyNames
 {
-    public const string HasNationality = "HasNationality";
+    public const string s_HasNationality = "HasNationality";
+    public const string s_AtLeast20 = "AtLeast20";
 }
 
 public static class AppClaimTypes
 {
-    public const string Nationality = "Nationality";
-    public const string BirthDate = "BirthDate";
+    public const string s_Nationality = "Nationality";
+    public const string s_BirthDate = "BirthDate";
 }

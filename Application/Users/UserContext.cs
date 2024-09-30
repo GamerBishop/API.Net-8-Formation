@@ -22,7 +22,10 @@ public class UserContext(IHttpContextAccessor httpContextAccessor) : IUserContex
         var userId = user.FindFirst(ClaimTypes.NameIdentifier)!.Value;
         var email = user.FindFirst(ClaimTypes.Email)!.Value;
         var roles = user.FindAll(ClaimTypes.Role).Select(x => x.Value);
+        var nationality = user.FindFirst(c => c.Type == "Nationality")?.Value;
+        string birthDateString = user.FindFirst(c => c.Type == "BirthDate")?.Value ?? "";
+        DateOnly? birthDate = string.IsNullOrEmpty(birthDateString) ? null : DateOnly.Parse(birthDateString);
 
-        return new CurrentUser(userId, email, roles);
+        return new CurrentUser(userId, email, roles, nationality, birthDate);
     }
 }

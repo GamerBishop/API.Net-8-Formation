@@ -9,6 +9,7 @@ using Restaurants.Application.Dishes.DTOs;
 using Restaurants.Application.Dishes.Querys.GetAllDishes;
 using Restaurants.Application.Dishes.Querys.GetAllDishesFromRestaurant;
 using Restaurants.Application.Dishes.Querys.GetDishById;
+using Restaurants.Infrastructure.Constants;
 
 namespace Restaurants.API.Controllers
 {
@@ -28,6 +29,7 @@ namespace Restaurants.API.Controllers
         /// <returns>The list of dishes.</returns>
         [HttpGet]
         [Route("AllDishes")]
+        [Authorize(Policy = PolicyNames.s_AtLeast20)]
         [ProducesResponseType(typeof(IEnumerable<DishDto>), 200)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetAllDishesFromRestaurant([FromRoute] Guid restaurantGuid)

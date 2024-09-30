@@ -2,7 +2,7 @@
 
 namespace Restaurants.Application.Users;
 
-public record CurrentUser(string Id, string Email, IEnumerable<string> Roles)
+public record CurrentUser(string Id, string Email, IEnumerable<string> Roles, string? Nationality, DateOnly? BirthDate)
 {
     public bool IsEnroledIn(string role) => Roles.Contains(role);
     public bool IsAdministrator => IsEnroledIn("Admin");

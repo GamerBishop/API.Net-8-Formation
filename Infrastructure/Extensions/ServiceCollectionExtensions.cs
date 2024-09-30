@@ -9,6 +9,8 @@ using Restaurants.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Restaurants.Infrastructure.Authorization;
 using Restaurants.Infrastructure.Constants;
+using Microsoft.AspNetCore.Authorization;
+using Restaurants.Infrastructure.Authorization.Requirements;
 
 namespace Restaurants.Infrastructure.Extensions
 {
@@ -33,7 +35,9 @@ namespace Restaurants.Infrastructure.Extensions
                 // Only checks if value exists
                 //.AddPolicy("HasNationality", builder => builder.RequireClaim("Nationality"));
                 // Checks the value of the specified claim
-                .AddPolicy(PolicyNames.HasNationality, builder => builder.RequireClaim(AppClaimTypes.Nationality, "German", "Polish"));
+                .AddPolicy(PolicyNames.s_HasNationality, builder => builder.RequireClaim(AppClaimTypes.s_Nationality, "German", "Polish"))
+                .AddPolicy(PolicyNames.s_AtLeast20, builder => builder.AddRequirements(new MinimumAgeRequirement(20)));
+            services.AddScoped<IAuthorizationHandler, MinimumAgeRequirementHandler>();
         }
     }
 }
