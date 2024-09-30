@@ -8,6 +8,7 @@ using Restaurants.Domain.Repositories;
 using Restaurants.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Restaurants.Infrastructure.Authorization;
+using Restaurants.Infrastructure.Constants;
 
 namespace Restaurants.Infrastructure.Extensions
 {
@@ -32,7 +33,7 @@ namespace Restaurants.Infrastructure.Extensions
                 // Only checks if value exists
                 //.AddPolicy("HasNationality", builder => builder.RequireClaim("Nationality"));
                 // Checks the value of the specified claim
-                .AddPolicy("HasNationality", builder => builder.RequireClaim("Nationality", "German", "Polish"));
+                .AddPolicy(PolicyNames.HasNationality, builder => builder.RequireClaim(AppClaimTypes.Nationality, "German", "Polish"));
         }
     }
 }

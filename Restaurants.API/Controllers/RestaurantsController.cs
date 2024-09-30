@@ -11,6 +11,7 @@ using Restaurants.Application.Restaurants.Commands.UpdateRestaurant;
 using Restaurants.Application.Restaurants.DTOs;
 using Restaurants.Application.Restaurants.Querys.GetAllRestaurants;
 using Restaurants.Application.Restaurants.Querys.GetRestaurantById;
+using Restaurants.Infrastructure.Constants;
 
 namespace Restaurants.API.Controllers;
 
@@ -41,7 +42,7 @@ public class RestaurantsController(IMediator mediator) : ControllerBase
     /// <param name="id">The ID of the restaurant.</param>
     /// <returns>The restaurant DTO.</returns>
     [HttpGet("{id}")]
-    [Authorize(Policy = "HasNationality")]
+    [Authorize(Policy = PolicyNames.HasNationality)]
     [ProducesResponseType(200, Type = typeof(RestaurantDto))]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<RestaurantDto?>> GetById([FromRoute] Guid id)
