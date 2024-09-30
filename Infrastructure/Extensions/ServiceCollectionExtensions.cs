@@ -28,6 +28,11 @@ namespace Restaurants.Infrastructure.Extensions
 
             services.AddScoped<IRestaurantRepository, RestaurantRepository>();
             services.AddScoped<IDishRepository, DishRepository>();
+            services.AddAuthorizationBuilder()
+                // Only checks if value exists
+                //.AddPolicy("HasNationality", builder => builder.RequireClaim("Nationality"));
+                // Checks the value of the specified claim
+                .AddPolicy("HasNationality", builder => builder.RequireClaim("Nationality", "German", "Polish"));
         }
     }
 }

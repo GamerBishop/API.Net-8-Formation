@@ -41,6 +41,7 @@ public class RestaurantsController(IMediator mediator) : ControllerBase
     /// <param name="id">The ID of the restaurant.</param>
     /// <returns>The restaurant DTO.</returns>
     [HttpGet("{id}")]
+    [Authorize(Policy = "HasNationality")]
     [ProducesResponseType(200, Type = typeof(RestaurantDto))]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<RestaurantDto?>> GetById([FromRoute] Guid id)
