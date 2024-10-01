@@ -55,5 +55,15 @@ namespace Restaurants.Domain.Entities
         /// Obtient ou définit la liste des plats proposés par le restaurant.
         /// </summary>
         public List<Dish> Dishes { get; set; } = [];
+
+        /// <summary>
+        /// Restaurant's owner and manager.
+        /// </summary>
+        public User Owner { get; set; } = default!;
+
+        /// <summary>
+        /// Id of the owner user.
+        /// </summary>
+        public string OwnerId { get; set; } = default!;
     }
 }
