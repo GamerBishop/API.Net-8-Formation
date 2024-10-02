@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using Restaurants.Application.Restaurants.DTOs;
 using Restaurants.Application.Users;
 using Restaurants.Domain.Entities;
+using Restaurants.Domain.Exceptions;
 using Restaurants.Domain.Repositories;
 
 namespace Restaurants.Application.Restaurants.Commands.CreateRestaurant;
@@ -15,7 +16,7 @@ public class CreateRestaurantCommandHandler(ILogger<CreateRestaurantCommandHandl
 {
     public async Task<Guid> Handle(CreateRestaurantCommand request, CancellationToken cancellationToken)
     {
-        var currentUser = userContext.GetCurrentUser();
+        var currentUser = userContext.GetCurrentUser() ?? throw new NotFoundException(nameof(User), "CurrentUserContext");
 
         logger.LogInformation("{UserEmail} [{UserId}] is creating a new {@Restaurant}", currentUser.Email, currentUser.Id, request);
 
