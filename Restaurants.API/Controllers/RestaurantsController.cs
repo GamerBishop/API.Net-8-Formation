@@ -114,6 +114,7 @@ public class RestaurantsController(IMediator mediator) : ControllerBase
     /// <returns>A list of dish DTOs.</returns>
     [HttpGet]
     [Route("dishes")]
+    [Authorize(Policy = PolicyNames.s_AtLeast2Restaurants)]
     [ProducesResponseType(200, Type = typeof(IEnumerable<DishDto>))]
     public async Task<IActionResult> GetAllDishes()
     {

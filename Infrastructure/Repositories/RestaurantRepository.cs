@@ -40,5 +40,10 @@ internal class RestaurantRepository(RestaurantsDbContext context) : IRestaurantR
         return true;
     }
 
+    public async Task<int> GetRestaurantsCountCreatedByUser(string userId)
+    {
+        return await context.Restaurants.CountAsync(r => r.OwnerId == userId);
+    }
+
 
 }

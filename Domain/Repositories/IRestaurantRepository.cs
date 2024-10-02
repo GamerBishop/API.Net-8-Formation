@@ -40,4 +40,6 @@ public interface IRestaurantRepository
     /// <param name="restaurant">The restaurant to delete.</param>
     /// <returns>A task that represents the asynchronous operation. The task result indicates whether the deletion was successful or not.</returns>
     Task<bool> DeleteAsync(Restaurant restaurant);
+
+    Task<int> GetRestaurantsCountCreatedByUser(string userId);
 }
