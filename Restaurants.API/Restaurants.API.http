@@ -9,7 +9,7 @@
 @RestaurantsAPI_HostAddress = {{Host}}:{{Port}}
 
 
-GET {{RestaurantsAPI_HostAddress}}/api/restaurants?PageSize=20&PageNumber=5
+GET {{RestaurantsAPI_HostAddress}}/api/restaurants?PageSize=5&PageNumber=5
 
 ###
 GET {{RestaurantsAPI_HostAddress}}/api/restaurants?SearchPhrase=wiza&PageSize=20&PageNumber=1

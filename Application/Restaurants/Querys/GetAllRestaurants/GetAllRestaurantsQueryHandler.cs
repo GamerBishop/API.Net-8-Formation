@@ -14,13 +14,13 @@ public class GetAllRestaurantsQueryHandler(ILogger<GetAllRestaurantsQueryHandler
 {
     public async Task<PagedResult<RestaurantDto>> Handle(GetAllRestaurantsQuery request, CancellationToken cancellationToken)
     {
-        
-        var lowerCaseSearchPhrase = request.SearchPhrase?.ToLowerInvariant();
         logger.LogInformation("Retrieving all restaurants");
 
         var restaurants = await restaurantRepository.GetAllMatchingAsync(request.SearchPhrase,
                                                                          request.PageSize,
-                                                                         request.PageNumber);
+                                                                         request.PageNumber,
+                                                                         request.SortBy,
+                                                                         request.SortDirection);
         
 
         logger.LogInformation("Retrieved {RestaurantCount} restaurants", restaurants.TotalCount);
