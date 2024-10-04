@@ -12,6 +12,17 @@ internal class RestaurantRepository(RestaurantsDbContext context) : IRestaurantR
         return restaurants;
     }
 
+    public async Task<IEnumerable<Restaurant>> GetAllMatchingAsync(string? _searchPhrase)
+    {
+        var lowerCaseSearchPhrase = _searchPhrase?.ToLower();
+        var restaurants = await context.Restaurants
+            .Include(r => r.Dishes)
+            .Where(r => string.IsNullOrEmpty(lowerCaseSearchPhrase) || (r.Name.ToLower().Contains(lowerCaseSearchPhrase) ||
+                                                                        r.Description.ToLower().Contains(lowerCaseSearchPhrase)))
+            .ToListAsync();
+        return restaurants;
+    }
+
     public async Task<Restaurant?> GetByIdAsync(Guid id)
     {
         var restaurant = await context.Restaurants

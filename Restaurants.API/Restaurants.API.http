@@ -9,8 +9,10 @@
 @RestaurantsAPI_HostAddress = {{Host}}:{{Port}}
 
 
-
 GET {{RestaurantsAPI_HostAddress}}/api/restaurants
+
+###
+GET {{RestaurantsAPI_HostAddress}}/api/restaurants?SearchPhrase=Croi
 ###
 
 GET {{RestaurantsAPI_HostAddress}}/api/restaurants/8A221E03-F2A4-44E9-5C17-08DCD803C421

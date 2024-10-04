@@ -14,6 +14,13 @@ public interface IRestaurantRepository
     Task<IEnumerable<Restaurant>> GetAllAsync();
 
     /// <summary>
+    /// Retrieves all restaurants that match the specified search phrase asynchronously.
+    /// </summary>
+    /// <param name="_searchPhrase">The search phrase to match.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result contains the collection of matching restaurants.</returns>
+    Task<IEnumerable<Restaurant>> GetAllMatchingAsync(string? _searchPhrase);
+
+    /// <summary>
     /// Retrieves a restaurant by its ID asynchronously.
     /// </summary>
     /// <param name="id">The ID of the restaurant to retrieve.</param>
@@ -41,5 +48,10 @@ public interface IRestaurantRepository
     /// <returns>A task that represents the asynchronous operation. The task result indicates whether the deletion was successful or not.</returns>
     Task<bool> DeleteAsync(Restaurant restaurant);
 
+    /// <summary>
+    /// Retrieves the number of restaurants created by the specified user.
+    /// </summary>
+    /// <param name="userId">The ID of the user.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result contains the number of restaurants created by the user.</returns>
     Task<int> GetRestaurantsCountCreatedByUser(string userId);
 }

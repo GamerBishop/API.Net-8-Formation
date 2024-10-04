@@ -30,9 +30,9 @@ public class RestaurantsController(IMediator mediator) : ControllerBase
     [HttpGet]
     [AllowAnonymous]
     [ProducesResponseType(200, Type = typeof(IEnumerable<RestaurantDto>))]
-    public async Task<ActionResult<IEnumerable<RestaurantDto>>> GetAll()
+    public async Task<ActionResult<IEnumerable<RestaurantDto>>> GetAll([FromQuery]GetAllRestaurantsQuery query)
     {
-        var restaurants = await mediator.Send(new GetAllRestaurantsQuery());
+        var restaurants = await mediator.Send(query);
         return Ok(restaurants);
     }
 
