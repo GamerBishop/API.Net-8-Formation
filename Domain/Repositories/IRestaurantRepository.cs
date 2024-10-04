@@ -18,7 +18,7 @@ public interface IRestaurantRepository
     /// </summary>
     /// <param name="_searchPhrase">The search phrase to match.</param>
     /// <returns>A task that represents the asynchronous operation. The task result contains the collection of matching restaurants.</returns>
-    Task<IEnumerable<Restaurant>> GetAllMatchingAsync(string? _searchPhrase);
+    Task<(IEnumerable<Restaurant> Restaurants, int TotalCount)> GetAllMatchingAsync(string? _searchPhrase, int PageSize, int PageNumber);
 
     /// <summary>
     /// Retrieves a restaurant by its ID asynchronously.

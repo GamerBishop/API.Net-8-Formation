@@ -9,10 +9,10 @@
 @RestaurantsAPI_HostAddress = {{Host}}:{{Port}}
 
 
-GET {{RestaurantsAPI_HostAddress}}/api/restaurants
+GET {{RestaurantsAPI_HostAddress}}/api/restaurants?PageSize=20&PageNumber=5
 
 ###
-GET {{RestaurantsAPI_HostAddress}}/api/restaurants?SearchPhrase=Croi
+GET {{RestaurantsAPI_HostAddress}}/api/restaurants?SearchPhrase=wiza&PageSize=20&PageNumber=1
 ###
 
 GET {{RestaurantsAPI_HostAddress}}/api/restaurants/8A221E03-F2A4-44E9-5C17-08DCD803C421
