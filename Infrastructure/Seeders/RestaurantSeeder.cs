@@ -30,16 +30,15 @@ namespace Restaurants.Infrastructure.Seeders
 
         private static IEnumerable<IdentityRole> GetRoles()
         {
-            return new List<IdentityRole>
-            {
-                new IdentityRole { Name = UserRoles.Admin.Name, NormalizedName = UserRoles.Admin.NormalizedName },
-                new IdentityRole { Name = UserRoles.Owner.Name, NormalizedName = UserRoles.Owner.NormalizedName },
-                new IdentityRole { Name = UserRoles.User.Name, NormalizedName = UserRoles.User.NormalizedName }
-            };
+            return [
+                new() { Name = UserRoles.Admin, NormalizedName = UserRoles.Admin.ToUpperInvariant() },
+                new() { Name = UserRoles.Owner, NormalizedName = UserRoles.Owner.ToUpperInvariant() },
+                new() { Name = UserRoles.User, NormalizedName = UserRoles.User.ToUpperInvariant() }
+            ];
         }
 
 
-        private static IEnumerable<Restaurant> GetRestaurants()
+        private static List<Restaurant> GetRestaurants()
         {
             List<Restaurant> restaurants = [
                 new()

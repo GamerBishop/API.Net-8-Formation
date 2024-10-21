@@ -2,7 +2,7 @@
 
 public static class UserRoles
 {
-    public static readonly (string Name, string NormalizedName) Admin = ("Admin", "ADMIN");
-    public static readonly (string Name, string NormalizedName) Owner = ("Owner", "OWNER");
-    public static readonly (string Name, string NormalizedName) User = ("User", "USER");
+    public const string Admin = "Admin";
+    public const string Owner = "Owner";
+    public const string User  = "User";
 }

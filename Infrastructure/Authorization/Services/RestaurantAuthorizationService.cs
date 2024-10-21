@@ -20,13 +20,13 @@ public class RestaurantAuthorizationService(ILogger<RestaurantAuthorizationServi
             return true;
         }
 
-        if (operation == ResourceOperation.Delete && user.IsEnroledIn(UserRoles.Admin.Name))
+        if (operation == ResourceOperation.Delete && user.IsEnroledIn(UserRoles.Admin))
         {
             logger.LogInformation("Delete Operation - Successful authorization for Admin");
             return true;
         }
 
-        if ((operation == ResourceOperation.Update || user.IsEnroledIn(UserRoles.Owner.Name)) && restaurant.OwnerId == user.Id)
+        if ((operation == ResourceOperation.Update || user.IsEnroledIn(UserRoles.Owner)) && restaurant.OwnerId == user.Id)
         {
             logger.LogInformation("Update/Delete Operation - Successful authorization for Owner");
             return true;

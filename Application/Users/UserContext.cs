@@ -2,6 +2,7 @@
 using Restaurants.Domain.Entities;
 using Restaurants.Domain.Exceptions;
 using Restaurants.Domain.Repositories;
+using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Security.Claims;
 
@@ -29,7 +30,7 @@ public class UserContext(IHttpContextAccessor httpContextAccessor, IRestaurantRe
         var roles = user.FindAll(ClaimTypes.Role).Select(x => x.Value);
         var nationality = user.FindFirst(c => c.Type == "Nationality")?.Value;
         string birthDateString = user.FindFirst(c => c.Type == "BirthDate")?.Value ?? "";
-        DateOnly? birthDate = string.IsNullOrEmpty(birthDateString) ? null : DateOnly.Parse(birthDateString);
+        DateOnly? birthDate = string.IsNullOrEmpty(birthDateString) ? null : DateOnly.Parse(birthDateString,CultureInfo.InvariantCulture);
 
         return new CurrentUser(userId, email, roles, nationality, birthDate);
     }

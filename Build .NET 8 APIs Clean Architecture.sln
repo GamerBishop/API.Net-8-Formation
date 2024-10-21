@@ -16,6 +16,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{FA1D
 		Insert5000Restaurant.sql = Insert5000Restaurant.sql
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{FD3F557C-C16E-4BFB-9561-D7E3B2CAF076}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurants.Application.Tests", "Testing\Restaurants.Application.Tests\Restaurants.Application.Tests.csproj", "{660D47E1-61C0-4736-B7B0-A240FDF6D03B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,8 +42,18 @@ Global
 		{60CA9F14-CEBE-488E-B152-73534AC4079F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60CA9F14-CEBE-488E-B152-73534AC4079F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60CA9F14-CEBE-488E-B152-73534AC4079F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{660D47E1-61C0-4736-B7B0-A240FDF6D03B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{660D47E1-61C0-4736-B7B0-A240FDF6D03B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{660D47E1-61C0-4736-B7B0-A240FDF6D03B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{660D47E1-61C0-4736-B7B0-A240FDF6D03B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{660D47E1-61C0-4736-B7B0-A240FDF6D03B} = {FD3F557C-C16E-4BFB-9561-D7E3B2CAF076}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E05112B0-3798-4131-9BB1-CEC59C2E838D}
 	EndGlobalSection
 EndGlobal
