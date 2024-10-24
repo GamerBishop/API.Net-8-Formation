@@ -1,17 +1,10 @@
-﻿using Xunit;
-using Restaurants.Application.Users;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Moq;
+﻿using Moq;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 using Restaurants.Domain.Constants;
 using FluentAssertions;
 
-namespace Restaurants.Application.Tests.Users
+namespace Restaurants.Application.Users.Tests
 {
     public class UserContextTests
     {

@@ -1,9 +1,7 @@
-﻿using Xunit;
-using Restaurants.Application.Users;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Restaurants.Domain.Constants;
 
-namespace Restaurants.Application.Tests.Users;
+namespace Restaurants.Application.Users.Tests;
 
 public class CurrentUserTests
 {
