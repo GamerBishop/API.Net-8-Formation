@@ -2,6 +2,7 @@
 using FluentAssertions;
 using Restaurants.Application.Dishes.DTOs;
 using Restaurants.Application.Restaurants.Commands.CreateRestaurant;
+using Restaurants.Application.Restaurants.Commands.UpdateRestaurant;
 using Restaurants.Domain.Entities;
 
 namespace Restaurants.Application.Restaurants.DTOs.Tests;
@@ -10,17 +11,17 @@ public class RestaurantProfileTests
 {
     private readonly Mapper p_Mapper;
 
-
     public RestaurantProfileTests()
-    { 
+    {
         // Arrange
         var configuration = new MapperConfiguration(cfg =>
         {
             cfg.AddProfile<RestaurantProfile>();
             cfg.AddProfile<DishesProfile>();
-        }); 
+        });
         p_Mapper = new Mapper(configuration);
     }
+
     [Fact()]
     public void CreateMap_ForRestaurantToRestaurantDto_ShouldMapCorrectly()
     {

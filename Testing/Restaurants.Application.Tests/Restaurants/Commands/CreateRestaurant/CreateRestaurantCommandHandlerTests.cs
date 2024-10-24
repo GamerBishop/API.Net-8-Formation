@@ -72,6 +72,7 @@ public class CreateRestaurantCommandHandlerTests
         // Act & Assert
         await Assert.ThrowsAsync<Exception>(() => commandHandler.Handle(new CreateRestaurantCommand(), CancellationToken.None));
     }
+
     [Fact()]
     public async Task Handle_WhenCurrentUserNotFound_ThrowsNotFoundException()
     {
@@ -81,12 +82,11 @@ public class CreateRestaurantCommandHandlerTests
         var restaurantRepositoryMock = new Mock<IRestaurantRepository>();
         var userContextMock = new Mock<IUserContext>();
 
-        userContextMock.Setup(x => x.GetCurrentUser()).Returns((CurrentUser)null);
+        userContextMock.Setup(x => x.GetCurrentUser()).Returns((CurrentUser?)null);
 
         var commandHandler = new CreateRestaurantCommandHandler(loggerMock.Object, mapperMock.Object, restaurantRepositoryMock.Object, userContextMock.Object);
 
         // Act & Assert
         await Assert.ThrowsAsync<NotFoundException>(() => commandHandler.Handle(new CreateRestaurantCommand(), CancellationToken.None));
     }
-     
 }
