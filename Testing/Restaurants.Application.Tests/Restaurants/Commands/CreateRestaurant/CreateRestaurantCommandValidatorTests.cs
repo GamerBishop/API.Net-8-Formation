@@ -90,14 +90,13 @@ public class CreateRestaurantCommandValidatorTests
 
     [Theory]
     [InlineData("")]
-    [InlineData(null)]
     [InlineData("InvalidCategory")]
     public void Validator_ForInvalidCategory_ShouldHaveValidationErrors(string? category)
     {
         // Arrange
         var command = new CreateRestaurantCommand()
         {
-            Category = category 
+            Category = category ?? string.Empty
         };
         var validator = new CreateRestaurantCommandValidator();
 
