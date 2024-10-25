@@ -94,4 +94,28 @@ public class RestaurantProfileTests
         result!.Adress!.Street.Should().Be(createRestaurantCommand.Street);
         result!.Adress!.ZipCode.Should().Be(createRestaurantCommand.ZipCode);
     }
+
+    [Fact()]
+    public void CreateMap_ForUpdateRestaurantCommandToRestaurant_ShouldMapCorrectly()
+    {
+        // Arrange
+        var _guid = Guid.NewGuid();
+        var updateRestaurantCommand = new UpdateRestaurantCommand(_guid)
+        {
+            Name = "Test Restaurant",
+            Description = "Test Description",
+            HasDelivery = true
+        };
+
+        var restaurant = new Restaurant();
+
+        // Act
+        var result = p_Mapper.Map(updateRestaurantCommand, restaurant);
+
+        // Assert
+        result.Should().NotBeNull();
+        result!.Name.Should().Be(updateRestaurantCommand.Name);
+        result!.Description.Should().Be(updateRestaurantCommand.Description);
+        result!.HasDelivery.Should().Be((bool)updateRestaurantCommand.HasDelivery);
+    }
 }

@@ -26,7 +26,7 @@ public class UpdateRestaurantCommandHandler(ILogger<UpdateRestaurantCommandHandl
 
         if (!restaurantAuthorizationService.Authorize(restaurant, ResourceOperation.Update))
         {
-            _logger.LogWarning("User not authorized to update restaurant with id {requestId}", request.Id);
+            _logger.LogWarning("User not authorized to update restaurant with id {RequestId}", request.Id);
             throw new ForbidException("User not authorized to update restaurant");
         }
 
