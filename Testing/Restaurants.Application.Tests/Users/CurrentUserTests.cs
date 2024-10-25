@@ -1,7 +1,8 @@
 ﻿using FluentAssertions;
+using Restaurants.Application.Users;
 using Restaurants.Domain.Constants;
 
-namespace Restaurants.Application.Users.Tests;
+namespace Restaurants.Application.Tests.Users;
 
 public class CurrentUserTests
 {

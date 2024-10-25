@@ -2,12 +2,13 @@
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using Moq;
+using Restaurants.Application.Restaurants.Commands.CreateRestaurant;
 using Restaurants.Application.Users;
 using Restaurants.Domain.Entities;
 using Restaurants.Domain.Exceptions;
 using Restaurants.Domain.Repositories;
 
-namespace Restaurants.Application.Restaurants.Commands.CreateRestaurant.Tests;
+namespace Restaurants.Application.Tests.Restaurants.Commands.CreateRestaurant;
 
 public class CreateRestaurantCommandHandlerTests
 {
@@ -51,7 +52,7 @@ public class CreateRestaurantCommandHandlerTests
         result.Should().Be(_guid);
         restaurant.OwnerId.Should().Be(CurrentUser.Id);
         restaurantRepositoryMock.Verify(x => x.CreateAsync(restaurant), Times.Once);
-    } 
+    }
 
     [Fact()]
     public async Task Handle_WhenRepositoryThrowsException_ThrowsException()

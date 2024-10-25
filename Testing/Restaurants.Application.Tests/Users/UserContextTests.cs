@@ -3,8 +3,9 @@ using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 using Restaurants.Domain.Constants;
 using FluentAssertions;
+using Restaurants.Application.Users;
 
-namespace Restaurants.Application.Users.Tests
+namespace Restaurants.Application.Tests.Users
 {
     public class UserContextTests
     {
@@ -27,7 +28,7 @@ namespace Restaurants.Application.Users.Tests
 
             var user = new ClaimsPrincipal(new ClaimsIdentity(claims, "TestAuthType"));
 
-            htttpContextAccessorMock.Setup(x => x.HttpContext ).Returns(new DefaultHttpContext()
+            htttpContextAccessorMock.Setup(x => x.HttpContext).Returns(new DefaultHttpContext()
             {
                 User = user
             });

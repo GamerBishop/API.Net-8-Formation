@@ -8,6 +8,7 @@ using Restaurants.Domain.Entities;
 using Restaurants.Domain.Exceptions;
 using Restaurants.Domain.Repositories;
 using Restaurants.Infrastructure.Authorization.Requirements.MinimumRestaurantsCreated;
+using System.Security.Claims;
 using Xunit;
 
 namespace Restaurants.Infrastructure.Tests.Authorization.Requirements.MinimumRestaurantsCreated;
@@ -40,7 +41,8 @@ public class MinimumRestaurantsCreatedRequirementHandlerTests
 
         var requirement = new MinimumRestaurantsCreatedRequirement(limit);
         var handler = new MinimumRestaurantsCreatedRequirementHandler(p_LoggerMock.Object, userContextMock.Object, restaurantRepositoryMock.Object);
-        var context = new AuthorizationHandlerContext([requirement], null, null);
+        var user = new ClaimsPrincipal(new ClaimsIdentity("TestAuthentication"));
+        var context = new AuthorizationHandlerContext([requirement], user, null);
 
         // Act
         await handler.HandleAsync(context);
@@ -66,10 +68,11 @@ public class MinimumRestaurantsCreatedRequirementHandlerTests
 
         var requirement = new MinimumRestaurantsCreatedRequirement(limit);
         var handler = new MinimumRestaurantsCreatedRequirementHandler(p_LoggerMock.Object, userContextMock.Object, restaurantRepositoryMock.Object);
-        var context = new AuthorizationHandlerContext([requirement], null, null);
+        var user = new ClaimsPrincipal(new ClaimsIdentity("TestAuthentication"));
+        var context = new AuthorizationHandlerContext([requirement], user, null);
 
         // Act
-        handler.HandleAsync(context);
+        await handler.HandleAsync(context);
 
         // Assert
         context.HasSucceeded.Should().BeFalse();
@@ -87,7 +90,8 @@ public class MinimumRestaurantsCreatedRequirementHandlerTests
 
         var requirement = new MinimumRestaurantsCreatedRequirement(5);
         var handler = new MinimumRestaurantsCreatedRequirementHandler(p_LoggerMock.Object, userContextMock.Object, restaurantRepositoryMock.Object);
-        var context = new AuthorizationHandlerContext([requirement], null, null);
+        var user = new ClaimsPrincipal(new ClaimsIdentity("TestAuthentication"));
+        var context = new AuthorizationHandlerContext([requirement], user, null);
 
         // Act
         Func<Task> act = async () => await handler.HandleAsync(context);

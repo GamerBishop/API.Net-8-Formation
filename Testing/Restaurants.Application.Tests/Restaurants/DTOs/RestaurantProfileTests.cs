@@ -3,9 +3,10 @@ using FluentAssertions;
 using Restaurants.Application.Dishes.DTOs;
 using Restaurants.Application.Restaurants.Commands.CreateRestaurant;
 using Restaurants.Application.Restaurants.Commands.UpdateRestaurant;
+using Restaurants.Application.Restaurants.DTOs;
 using Restaurants.Domain.Entities;
 
-namespace Restaurants.Application.Restaurants.DTOs.Tests;
+namespace Restaurants.Application.Tests.Restaurants.DTOs;
 
 public class RestaurantProfileTests
 {
